@@ -13,6 +13,8 @@ public class MainActivity extends AppCompatActivity {
     private boolean isConnect=false;
     MyService myService;
 
+
+    //service Connection
     ServiceConnection connection = new ServiceConnection() {
         @Override
         public void onServiceConnected(ComponentName name, IBinder service) {
@@ -47,12 +49,14 @@ public class MainActivity extends AppCompatActivity {
 
     public void startService(View view) {
         if(!isConnect){
+            //start bind sevice
             bindService(new Intent(this,MyService.class),connection,BIND_AUTO_CREATE);
         }
     }
 
     public void stopService(View view) {
         if(isConnect){
+            //stop bind service
             unbindService(connection);
         }
     }

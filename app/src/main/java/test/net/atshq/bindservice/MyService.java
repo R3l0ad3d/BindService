@@ -9,18 +9,20 @@ import android.widget.Toast;
 
 public class MyService extends Service {
 
+    //create binder object
     public LocalBinder binder = new LocalBinder();
 
     public MyService() {
     }
 
+    //return binder object
     @Override
     public IBinder onBind(Intent intent) {
         return binder;
     }
 
 
-    //Create a class
+    //Create a class for getting service reference
     public class LocalBinder extends Binder{
         public MyService getService(){
             return MyService.this;
